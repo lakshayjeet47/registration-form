@@ -526,6 +526,24 @@ button.secondary {
     color: #222;
 }
 
+.name-list li.loading-item {
+    color: #50627a;
+    font-style: italic;
+    background: #eef5ff;
+    border: 1px dashed #c9daef;
+    animation: pulseLoading 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulseLoading {
+    from {
+        opacity: 0.6;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .players-refresh {
     width: 100%;
     margin-top: 10px;

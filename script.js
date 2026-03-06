@@ -146,6 +146,7 @@ const modalBack = document.getElementById("modalBack");
 const modalClose = document.getElementById("modalClose");
 const listScrollTimers = new WeakMap();
 const latestPlayersState = { boys: [], girls: [] };
+let playersLoadingTimer = null;
 
 // Web App URL to fetch players from Google Sheet
 const PLAYERS_API_URL = "https://script.google.com/macros/s/AKfycbwMnyedOrUw1oZ2dGeonsdC5vbinEa0cy2F4nTuwZptzRwYK4hK6z0EWjk0kEoC_hm-AQ/exec";
@@ -406,9 +407,54 @@ function displayPlayers(playersList) {
   startAutoScroll(femaleList);
 }
 
+function stopPlayersLoadingAnimation() {
+  if (!playersLoadingTimer) return;
+  clearInterval(playersLoadingTimer);
+  playersLoadingTimer = null;
+}
+
+function showPlayersLoadingState() {
+  if (!maleList || !femaleList) return;
+
+  stopPlayersLoadingAnimation();
+  latestPlayersState.boys = [];
+  latestPlayersState.girls = [];
+  maleList.innerHTML = "";
+  femaleList.innerHTML = "";
+
+  const maleLoadingItem = document.createElement("li");
+  maleLoadingItem.className = "loading-item";
+  maleLoadingItem.textContent = "Getting data";
+
+  const femaleLoadingItem = document.createElement("li");
+  femaleLoadingItem.className = "loading-item";
+  femaleLoadingItem.textContent = "Getting data";
+
+  maleList.appendChild(maleLoadingItem);
+  femaleList.appendChild(femaleLoadingItem);
+
+  const dots = [".", "..", "..."];
+  let index = 0;
+  playersLoadingTimer = setInterval(() => {
+    const suffix = dots[index];
+    index = (index + 1) % dots.length;
+    maleLoadingItem.textContent = `Getting data${suffix}`;
+    femaleLoadingItem.textContent = `Getting data${suffix}`;
+    if (playersHint) playersHint.textContent = `Getting data${suffix}`;
+  }, 420);
+}
+
+function showNoRegistrationsState() {
+  stopPlayersLoadingAnimation();
+  displayPlayers([]);
+  if (playersHint) {
+    playersHint.textContent = "No registration yet";
+  }
+}
+
 async function loadPlayers() {
   try {
-    if (playersHint) playersHint.textContent = "Loading...";
+    showPlayersLoadingState();
 
     let players = [];
     try {
@@ -418,11 +464,16 @@ async function loadPlayers() {
       players = await fetchPlayersJsonp(PLAYERS_API_URL);
     }
 
-    displayPlayers(sanitizePlayers(players));
-  } catch (error) {
-    if (playersHint) {
-      playersHint.textContent = "Unable to load players (check Web App access = Anyone)";
+    stopPlayersLoadingAnimation();
+    const safePlayers = sanitizePlayers(players);
+    if (!safePlayers.length) {
+      showNoRegistrationsState();
+      return;
     }
+
+    displayPlayers(safePlayers);
+  } catch (error) {
+    showNoRegistrationsState();
   }
 }
 
