@@ -31,6 +31,11 @@ body {
     background: var(--card);
     border-radius: 8px;
     box-shadow: 0 6px 20px rgba(10, 10, 10, 0.06)
+    position: relative;
+    background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    background-color: #f6f9fc;
 }
 
 h1 {
@@ -113,9 +118,23 @@ form input,
 form select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #c7d6ea;
     border-radius: 6px;
-    margin-top: 6px
+    margin-top: 6px;
+        background: #f4f8fc;
+        box-shadow: 0 2px 8px rgba(43,139,211,0.04);
+        transition: background .18s, border-color .18s;
+        background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+        background-repeat: repeat;
+        background-size: 120px 120px;
+        background-color: #eaf3fa;
+}
+
+form input:focus,
+form select:focus {
+    background: #eaf3fa;
+    border-color: #2b8bd3;
+    outline: none;
 }
 
 .terms-checkbox-section {
