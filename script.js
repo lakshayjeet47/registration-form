@@ -148,7 +148,7 @@ const listScrollTimers = new WeakMap();
 const latestPlayersState = { boys: [], girls: [] };
 
 // Web App URL to fetch players from Google Sheet
-const PLAYERS_API_URL = "https://script.google.com/macros/s/AKfycbzCNmwWxowZXhOdOY1wigt3q46KDCvEePB9ABK105KXoktcBvRvkv6ywDevaLuMraNeEQ/exec";
+const PLAYERS_API_URL = "https://script.google.com/macros/s/AKfycbwMnyedOrUw1oZ2dGeonsdC5vbinEa0cy2F4nTuwZptzRwYK4hK6z0EWjk0kEoC_hm-AQ/exec";
 
 function buildApiUrl(baseUrl, extraParams) {
   const url = new URL(baseUrl);
