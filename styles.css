@@ -1,3 +1,60 @@
+@media (max-width: 600px) {
+    .main-navbar {
+        gap: 6px;
+        padding: 8px;
+        font-size: 0.86rem;
+        border-radius: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 0.82rem;
+        line-height: 1.2;
+        border-radius: 4px;
+    }
+}
+
+/* Main Navbar */
+.main-navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: stretch;
+    background: #eaf3fa;
+    border-bottom: 1px solid #c7d6ea;
+    padding: 12px;
+    margin: 0 0 18px;
+    font-size: 1rem;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 8px rgba(43,139,211,0.04);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+.nav-link {
+    display: block;
+    color: #0f2f56;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 12px;
+    background: #f9fcff;
+    border: 1px solid #d2e2f2;
+    border-radius: 6px;
+    transition: background .18s, color .18s, border-color .18s;
+}
+.nav-link:hover, .nav-link:focus {
+    background: #d6e7f7;
+    color: #2b8bd3;
+    border-color: #2b8bd3;
+}
 :root {
     --bg: #f6f9fc;
     --card: #ffffff;
@@ -458,10 +515,10 @@ button.secondary {
 
 .right-panel {
     position: fixed;
-    top: 24px;
+    top: 80px;
     right: 18px;
     width: var(--sidebar-width);
-    max-height: calc(100vh - 48px);
+    max-height: calc(100vh - 104px);
     z-index: 40;
 }
 
