@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ground Details</title>
+
+    <style>
+        :root {
+            --bg: #f6f9fc;
+            --card: #ffffff;
+            --accent: #2b8bd3;
+            --muted: #666;
+            --danger: #b22;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Segoe UI, Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: #222;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 28px auto;
+            padding: 18px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(10, 10, 10, .06);
+            overflow: hidden;
+        }
+
+        /* Top Header (same vibe as your registration page) */
+        .event-header {
+            text-align: center;
+            padding: 16px 14px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: .4px;
+        }
+
+        .content {
+            padding: 16px 16px 6px;
+        }
+
+        h1 {
+            margin: 14px 0 6px;
+            font-size: 1.7rem;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .sub {
+            margin: 0 0 16px;
+            text-align: center;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 14px 0 6px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(43, 139, 211, .22);
+        }
+
+        .btn.primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(43, 139, 211, .26);
+        }
+
+        .btn.secondary {
+            background: #e9eef6;
+            color: #111;
+        }
+
+        .btn.secondary:hover {
+            transform: translateY(-1px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            padding: 14px 0 10px;
+        }
+
+        .section {
+            border: 1px solid #e7eef7;
+            border-radius: 10px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 12px;
+            background: #f0f4f8;
+            border-left: 4px solid var(--accent);
+        }
+
+        .badge {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 800;
+            font-size: .95rem;
+            flex: 0 0 auto;
+        }
+
+        .section-head h2 {
+            margin: 0;
+            font-size: 1.05rem;
+            color: #123;
+        }
+
+        .section-body {
+            padding: 12px;
+            color: #222;
+            line-height: 1.55;
+        }
+
+        .section-body p {
+            margin: 0 0 10px;
+            color: #222;
+        }
+
+        .note {
+            margin-top: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: #f0f4f8;
+            border-left: 4px solid var(--accent);
+            color: #1a2a3a;
+            font-weight: 600;
+            font-size: .95rem;
+        }
+
+        .img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            border: 1px solid #e7eef7;
+            box-shadow: 0 2px 10px rgba(10, 10, 10, .06);
+            margin-top: 10px;
+        }
+
+        .img-caption {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        footer {
+            margin: 16px 0 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: .92rem;
+            padding: 0 6px 16px;
+        }
+
+        @media (min-width: 860px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .img {
+                height: 210px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                padding: 14px;
+                margin: 16px auto;
+            }
+
+            .content {
+                padding: 14px 14px 6px;
+            }
+
+            .img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <div class="card">
+            <header class="event-header">
+                📍 Ground Details • Badminton Tournament Venue
+            </header>
+
+
+            <div class="content">
+                <h1>Venue & Ground Information</h1>
+                <p class="sub">
+                    Here you can see ground photos and important details about the court & facilities.
+                    (Images are dummy for now — you can replace them later.)
+                </p>
+
+                <div class="top-actions">
+                    <a class="btn primary" href="index.html">⬅ Back to Registration</a>
+                    <a class="btn secondary" href="#" onclick="window.print();return false;">🖨 Print</a>
+                </div>
+
+                <div class="grid">
+
+                    <!-- Ground Location -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">📍</div>
+                            <h2>Ground Location</h2>
+                        </div>
+
+                        <div class="section-body">
+
+                            <p>
+                                <strong>Ground Address:</strong><br>
+                                Near Petrol Pump, Mansinbal Area<br>
+                                Near Bhawarna, Tehsil Palampur<br>
+                                District Kangra, Himachal Pradesh – 176083<br>
+                                India
+                            </p>
+
+                            <p>
+                                The badminton tournament ground is located near Bhawarna town,
+                                which is approximately 11 km from Palampur in Kangra district.
+                                The venue is easily accessible by road and located close to the
+                                main market and petrol pump landmark.
+                            </p>
+
+                            <!-- Google Map -->
+                            <iframe src="https://maps.google.com/maps?q=32.04423,76.4925&z=14&output=embed" width="100%"
+                                height="260" style="border:0;border-radius:10px;margin-top:10px;" loading="lazy">
+                            </iframe>
+
+                            <!-- Navigation Button -->
+                            <div style="margin-top:12px;">
+                                <a class="btn primary"
+                                    href="https://www.google.com/maps/dir/?api=1&destination=32.04423,76.4925"
+                                    target="_blank">
+                                    Start Navigation to Ground
+                                </a>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- 1 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">1</div>
+                            <h2>Court & Ground Base</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Solid soil base ground</strong> — stable surface and well-maintained playing
+                                area.</p>
+                            <img class="img" src="https://picsum.photos/seed/ground1/1200/700"
+                                alt="Dummy ground image 1">
+                            <div class="img-caption">Dummy Image: Court area view</div>
+                        </div>
+                    </section>
+
+                    <!-- 2 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">2</div>
+                            <h2>Wind Protection</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Wind proof setup</strong> — the venue has support structures to reduce strong
+                                wind impact.</p>
+                            <img class="img" src="https://picsum.photos/seed/ground2/1200/700"
+                                alt="Dummy ground image 2">
+                            <div class="img-caption">Dummy Image: Boundary / protection view</div>
+                        </div>
+                    </section>
+
+                    <!-- 3 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">3</div>
+                            <h2>Open Sky Venue</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Not fully indoor — open sky</strong> (semi-open environment), fresh air and
+                                natural light.</p>
+                            <img class="img" src="https://picsum.photos/seed/ground3/1200/700"
+                                alt="Dummy ground image 3">
+                            <div class="img-caption">Dummy Image: Open sky / roof view</div>
+                        </div>
+                    </section>
+
+                    <!-- 4 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">4</div>
+                            <h2>Sitting Arrangements</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Sitting arrangements</strong> available for audience and players’ supporters.</p>
+                            <img class="img" src="https://picsum.photos/seed/ground4/1200/700"
+                                alt="Dummy ground image 4">
+                            <div class="img-caption">Dummy Image: Seating area</div>
+                        </div>
+                    </section>
+
+                    <!-- 5 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">5</div>
+                            <h2>Stage for Award Ceremony</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Stage for award ceremony</strong> is available for trophy distribution and
+                                announcements.</p>
+                            <img class="img" src="https://picsum.photos/seed/ground5/1200/700"
+                                alt="Dummy ground image 5">
+                            <div class="img-caption">Dummy Image: Stage / event setup</div>
+                        </div>
+                    </section>
+
+                    <!-- 6 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">6</div>
+                            <h2>Water Corner</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Water corner</strong> available for players and visitors.</p>
+                            <img class="img" src="https://picsum.photos/seed/ground6/1200/700"
+                                alt="Dummy ground image 6">
+                            <div class="img-caption">Dummy Image: Water corner</div>
+                        </div>
+                    </section>
+
+                    <!-- 7 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">7</div>
+                            <h2>Tea Corner</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Tea corner</strong> available for quick refreshments.</p>
+                            <img class="img" src="https://picsum.photos/seed/ground7/1200/700"
+                                alt="Dummy ground image 7">
+                            <div class="img-caption">Dummy Image: Tea/refreshment corner</div>
+                        </div>
+                    </section>
+
+                    <!-- 8 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">8</div>
+                            <h2>Shop for Refreshments</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>Shop available for refreshments</strong> (snacks / cold drinks etc.).</p>
+                            <img class="img" src="https://picsum.photos/seed/ground8/1200/700"
+                                alt="Dummy ground image 8">
+                            <div class="img-caption">Dummy Image: Shop / stall area</div>
+                        </div>
+                    </section>
+
+                    <!-- 9 -->
+                    <section class="section">
+                        <div class="section-head">
+                            <div class="badge">9</div>
+                            <h2>First Aid</h2>
+                        </div>
+                        <div class="section-body">
+                            <p><strong>First aid available</strong> in case of emergency.</p>
+                            <div class="note">Emergency support will be provided immediately if needed.</div>
+                            <img class="img" src="https://picsum.photos/seed/ground9/1200/700"
+                                alt="Dummy ground image 9">
+                            <div class="img-caption">Dummy Image: First-aid point</div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <footer>
+                    Replace dummy images by your real ground photos later.<br />
+                    Tip: Just change each <strong>src=""</strong> link with your image file path (example:
+                    <strong>images/ground1.jpg</strong>).
+                </footer>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

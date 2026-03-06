@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Entry Fee and Payment Details</title>
+  <style>
+    :root {
+      --bg: #f6f9fc;
+      --card: #ffffff;
+      --accent: #2b8bd3;
+      --muted: #5d6b7a;
+      --ok: #1a9a45;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: Segoe UI, Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #1d2a38;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 24px auto;
+      padding: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #e1ebf7;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(10, 10, 10, 0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    .content h1 {
+      margin: 0 0 10px;
+      color: #123d67;
+      font-size: 1.55rem;
+    }
+
+    .lead {
+      margin: 0 0 12px;
+      color: #304153;
+      line-height: 1.5;
+    }
+
+    .note {
+      margin: 0 0 14px;
+      padding: 10px 12px;
+      background: #edf4fb;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .qr-box {
+      border: 1px dashed #b9cbe1;
+      border-radius: 10px;
+      padding: 12px;
+      background: #fbfdff;
+      text-align: center;
+    }
+
+    .qr-box img {
+      width: 190px;
+      height: 190px;
+      border-radius: 8px;
+      border: 1px solid #d8e3f0;
+      background: #fff;
+    }
+
+    .caption {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .wa-btn {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: var(--ok);
+      color: #fff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 700;
+    }
+
+    .wa-btn:hover {
+      background: #137d37;
+    }
+
+    .refund {
+      margin-top: 16px;
+      border: 1px solid #e1ebf7;
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .refund h2 {
+      margin: 0 0 8px;
+      color: #14385f;
+      font-size: 1.1rem;
+    }
+
+    .refund p {
+      margin: 0 0 8px;
+      line-height: 1.5;
+    }
+
+    .refund ul {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 700;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn.secondary {
+      background: #eaf0f8;
+      color: #102033;
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        margin: 12px auto;
+        padding: 10px;
+      }
+
+      .content {
+        padding: 14px;
+      }
+
+      .qr-box img {
+        width: 155px;
+        height: 155px;
+      }
+
+      .wa-btn,
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <section class="card">
+      <header class="header">Entry Fee and Payment Details</header>
+      <div class="content">
+        <h1>Tournament Payment Information</h1>
+
+        <p class="lead">
+          Players must pay the entry fee while submitting the registration form. Entry fee payment is required before
+          match day.
+        </p>
+
+        <p class="lead">
+          For your kind information, the entry fee is <strong>Rs. 200 per player for boys</strong> and
+          <strong>Rs. 150 per player for girls</strong>.
+        </p>
+
+        <p class="note">
+          If you want to pay online, scan the QR code below and send the payment screenshot on WhatsApp.
+        </p>
+
+        <div class="qr-box">
+          <img src="qr-placeholder.svg" alt="Dummy QR placeholder for online entry fee payment">
+          <p class="caption">Dummy QR image for now. You can replace this with your real payment QR.</p>
+        </div>
+
+        <a class="wa-btn" href="https://wa.me/918629885007?text=Hello%2C%20I%20have%20completed%20the%20entry%20fee%20payment%20for%20the%20badminton%20tournament.%20Please%20confirm." target="_blank" rel="noopener noreferrer">
+          💬 Send Payment Proof on WhatsApp
+        </a>
+
+        <section class="refund">
+          <h2>Refund Policy</h2>
+          <p>
+            If a player wants to cancel registration, cancellation should be done at least one day before match day.
+          </p>
+          <ul>
+            <li>Cancellation one day before match day: full refund.</li>
+            <li>Cancellation on match day: 50% entry fee will be deducted.</li>
+          </ul>
+        </section>
+
+        <div class="actions">
+          <a class="btn primary" href="index.html">Back to Registration</a>
+          <a class="btn secondary" href="#" onclick="window.print(); return false;">Print</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,530 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Terms and Conditions - Badminton Tournament</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .terms-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .terms-container h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+      font-size: 2em;
+    }
+    .language-toggle {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .language-toggle button {
+      padding: 8px 16px;
+      margin: 0 5px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .language-toggle button.active {
+      background-color: #0056b3;
+      font-weight: bold;
+    }
+    .language-section {
+      display: none;
+    }
+    .language-section.active {
+      display: block;
+    }
+    .badminton-icon {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+    .terms-section {
+      margin-bottom: 25px;
+      line-height: 1.8;
+      color: #555;
+    }
+    .terms-section h2 {
+      color: #2c3e50;
+      font-size: 1.3em;
+      margin: 20px 0 12px 0;
+      border-bottom: 3px solid #007bff;
+      padding-bottom: 8px;
+    }
+    .terms-section h3 {
+      color: #34495e;
+      font-size: 1.1em;
+      margin: 15px 0 8px 0;
+      font-weight: 600;
+    }
+    .terms-section p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+    .terms-section ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+    .terms-section li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .card-system {
+      background-color: #f8f9fa;
+      border-left: 4px solid #28a745;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 4px;
+    }
+    .card-system strong {
+      color: #2c3e50;
+    }
+    .info-box {
+      background-color: #e7f3ff;
+      border-left: 4px solid #007bff;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 4px;
+    }
+    .prize-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background-color: #fff;
+    }
+    .prize-table th, .prize-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    .prize-table th {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+    .prize-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .inspiration-section {
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      margin: 40px 0 20px 0;
+      text-align: center;
+    }
+    .inspiration-section h2 {
+      border: none;
+      color: white;
+      margin-top: 0;
+    }
+    .inspiration-section p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .inspiration-quotes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .quote-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 3px solid #ffd700;
+    }
+    .quote-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .inspiration-quotes {
+        grid-template-columns: 1fr;
+      }
+      .terms-container h1 {
+        font-size: 1.5em;
+      }
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      font-weight: 600;
+    }
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <main class="terms-container">
+    <div class="badminton-icon">🏸</div>
+    <h1>Badminton Tournament Guidelines</h1>
+    
+    <div class="language-toggle">
+      <button class="active" onclick="toggleLanguage('english')">📖 English</button>
+      <button onclick="toggleLanguage('hindi')">📖 हिंदी</button>
+    </div>
+
+    <!-- ENGLISH VERSION -->
+    <div id="english" class="language-section active">
+      <h2 style="text-align: center; border: none; color: #007bff; margin-bottom: 30px;">🏸 Badminton Tournament Guidelines (English)</h2>
+
+      <div class="terms-section">
+        <h2>1. Terms & Conditions</h2>
+        <ul>
+          <li><strong>Singles Tournament:</strong> This is a Singles Tournament — only individual players will participate.</li>
+          <li><strong>Follow Instructions:</strong> All players must follow instructions provided by the organizers.</li>
+          <li><strong>Referee Decisions:</strong> Referee decisions must be respected at all times. In case of unavailability or missed judgment, the point will be treated as common.</li>
+          <li><strong>Sportsmanship:</strong> Players are expected to demonstrate sportsmanship, kindness, and fair gameplay.</li>
+          <li><strong>Misconduct:</strong> Any act of violence, misconduct, or disrespect will result in instant disqualification.</li>
+        </ul>
+        
+        <h3>Card System for Verbal Violence:</h3>
+        <div class="card-system">
+          <strong>🟢 Green Card:</strong> First warning.<br>
+          <strong>🟢 Second Green Card:</strong> Final warning.<br>
+          <strong>🔴 Red Card:</strong> Disqualification.
+        </div>
+
+        <h3>Entry Fees:</h3>
+        <div class="info-box">
+          <strong>Girls:</strong> ₹150<br>
+          <strong>Boys:</strong> ₹200
+        </div>
+        <p><strong>Court & Details:</strong> Court location and details will be shared on-site or via WhatsApp.</p>
+        <p><em>All players are respected and welcomed as valued participants in this tournament.</em></p>
+      </div>
+
+      <div class="terms-section">
+        <h2>2. Player Authentication & Registration</h2>
+        <ul>
+          <li><strong>Aadhar Card Required:</strong> Players must carry their Aadhar card (soft copy or hard copy) for safety and authentication purposes. Organizers may check if needed.</li>
+          <li><strong>Payment:</strong> Payments should be made online before the match starts or at the time of registration.</li>
+          <li><strong>Registration Form:</strong> A registration form must be filled out by each participant.</li>
+          <li><strong>Proof of Payment:</strong> Payment will be considered complete only after showing proof (screenshot of payment).</li>
+          <li><strong>No Fee Relaxation:</strong> For this very first tournament, we regret that no fee relaxation can be offered.</li>
+          <li><strong>Session 2 Discount:</strong> Players who participate in this session will receive a 10–20% discount in Session 2 as a gesture of appreciation.</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h2>3. Prize Pool</h2>
+        <table class="prize-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Position</th>
+              <th>Prize Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Boys Category</strong></td>
+              <td>1st Position</td>
+              <td>₹3100</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>2nd Position (Runner-up)</td>
+              <td>₹1100</td>
+            </tr>
+            <tr>
+              <td><strong>Girls Category</strong></td>
+              <td>1st Position</td>
+              <td>₹2100</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>2nd Position (Runner-up)</td>
+              <td>₹700</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Dynamic Prize Pool:</strong> The prize pool may increase depending on the number of registrations. Any changes in the prize pool will be announced respectfully on the court before the final match or at an appropriate stage during the tournament.</p>
+      </div>
+
+      <div class="terms-section">
+        <h2>4. Tournament Rules</h2>
+        
+        <h3>Match Equipment:</h3>
+        <ul>
+          <li><strong>Shuttlecocks:</strong> Matches will be played with Yonex 350 shuttlecocks.</li>
+          <li><strong>Racquets:</strong> Players must bring their own badminton racquets.</li>
+        </ul>
+
+        <h3>Facilities:</h3>
+        <ul>
+          <li>Water and tea will be available at the court for players.</li>
+        </ul>
+
+        <h3>Match Format:</h3>
+        <div class="info-box">
+          <strong>First Round:</strong> 15 / 15 / 21 points (best of 3 sets)<br>
+          <strong>Semi-Final & Final:</strong> 21 / 21 / 21 points (best of 3 sets)
+        </div>
+
+        <h3>Scheduling:</h3>
+        <ul>
+          <li><strong>Tournament Duration:</strong> 2 days</li>
+          <li><strong>Match Start Time:</strong> Matches start at 10:00 AM sharp on Saturday</li>
+          <li><strong>First Round:</strong> All first-round matches will be played on Saturday</li>
+          <li><strong>Remaining Matches:</strong> Remaining matches may be played on Sunday if required</li>
+          <li><strong>Girls' Schedule:</strong> Girls' matches will end by 5:30 PM for safety considerations</li>
+          <li><strong>Boys' Schedule:</strong> Boys' matches may continue into the evening, with decisions taken jointly by organizers and players for comfort and fairness</li>
+        </ul>
+
+        <h3>General Rules:</h3>
+        <ul>
+          <li>All other rules follow standard badminton tournament regulations.</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h2>5. Match Flow</h2>
+        
+        <h3>Day 1 (Saturday)</h3>
+        <ul>
+          <li>Opening ceremony and instructions at 9:30 AM</li>
+          <li>Matches begin at 10:00 AM</li>
+          <li>All first-round matches scheduled by organizers</li>
+          <li>Girls' matches conclude by 5:30 PM</li>
+          <li>Boys' matches may extend into the evening, based on mutual agreement between organizers and players</li>
+        </ul>
+
+        <h3>Day 2 (Sunday)</h3>
+        <ul>
+          <li>Remaining matches (if any) continue</li>
+          <li>Teams for second round onwards will be decided by random chit-picking</li>
+          <li>Semi-finals and finals played with 21-point sets</li>
+          <li>Closing ceremony and prize distribution</li>
+        </ul>
+      </div>
+
+      <div class="inspiration-section">
+        <h2>✨ A Message of Inspiration & Confidence ✨</h2>
+        <p>Welcome to this badminton tournament! This is not just about winning medals or prize money. This is about celebrating your spirit, determination, and passion for the game.</p>
+        
+        <div class="inspiration-quotes">
+          <div class="quote-card">
+            <p>"Champions keep playing until they get it right. Every match is a chance to grow stronger and better."</p>
+          </div>
+          <div class="quote-card">
+            <p>"Your effort will define your success. Win or lose, you are a champion for showing up and giving your best."</p>
+          </div>
+          <div class="quote-card">
+            <p>"Respect your opponents, believe in yourself, and play with your heart. That's what makes a true sportsperson."</p>
+          </div>
+          <div class="quote-card">
+            <p>"This tournament is about celebrating sports spirit, unity, and the joy of badminton. Enjoy every moment on the court!"</p>
+          </div>
+        </div>
+
+        <p style="margin-top: 25px; font-size: 1.2em; font-weight: bold;">🌟 You belong here. You are valued. Now go out and shine! 🌟</p>
+      </div>
+    </div>
+
+    <!-- HINDI VERSION -->
+    <div id="hindi" class="language-section">
+      <h2 style="text-align: center; border: none; color: #007bff; margin-bottom: 30px;">🏸 बैडमिंटन टूर्नामेंट नियमावली (हिंदी)</h2>
+
+      <div class="terms-section">
+        <h2>1. नियम और शर्तें</h2>
+        <ul>
+          <li><strong>सिंगल्स टूर्नामेंट:</strong> यह एक सिंगल्स टूर्नामेंट है — केवल व्यक्तिगत खिलाड़ी भाग लेंगे।</li>
+          <li><strong>निर्देशों का पालन:</strong> सभी खिलाड़ियों को आयोजकों द्वारा दिए गए निर्देशों का पालन करना अनिवार्य है।</li>
+          <li><strong>रेफरी का निर्णय:</strong> रेफरी का निर्णय अंतिम होगा और उसका सम्मान किया जाना चाहिए। यदि रेफरी अनुपलब्ध हों या कोई निर्णय छूट जाए, तो अंक को कॉमन माना जाएगा।</li>
+          <li><strong>खेल भावना:</strong> खिलाड़ियों से अपेक्षा की जाती है कि वे खेल भावना, विनम्रता और निष्पक्ष खेल का प्रदर्शन करें।</li>
+          <li><strong>दुर्व्यवहार:</strong> किसी भी प्रकार की हिंसा, दुर्व्यवहार या असम्मानजनक व्यवहार पर तुरंत अयोग्यता होगी।</li>
+        </ul>
+        
+        <h3>मौखिक हिंसा के लिए कार्ड प्रणाली:</h3>
+        <div class="card-system">
+          <strong>🟢 ग्रीन कार्ड:</strong> पहली चेतावनी।<br>
+          <strong>🟢 दूसरा ग्रीन कार्ड:</strong> अंतिम चेतावनी।<br>
+          <strong>🔴 रेड कार्ड:</strong> अयोग्यता।
+        </div>
+
+        <h3>प्रवेश शुल्क:</h3>
+        <div class="info-box">
+          <strong>लड़कियाँ:</strong> ₹150<br>
+          <strong>लड़के:</strong> ₹200
+        </div>
+        <p><strong>कोर्ट विवरण:</strong> कोर्ट का स्थान और विवरण साइट पर या व्हाट्सएप के माध्यम से साझा किया जाएगा।</p>
+        <p><em>सभी खिलाड़ियों का सम्मान किया जाएगा और उन्हें इस टूर्नामेंट में भाग लेने के लिए सादर आमंत्रित किया जाता है।</em></p>
+      </div>
+
+      <div class="terms-section">
+        <h2>2. खिलाड़ी प्रमाणीकरण और पंजीकरण</h2>
+        <ul>
+          <li><strong>आधार कार्ड आवश्यक:</strong> खिलाड़ियों को अपनी आधार कार्ड (सॉफ्ट कॉपी या हार्ड कॉपी) साथ लाना अनिवार्य है। आयोजक आवश्यकता पड़ने पर जांच कर सकते हैं।</li>
+          <li><strong>भुगतान:</strong> भुगतान ऑनलाइन मैच शुरू होने से पहले या पंजीकरण के समय किया जाना चाहिए।</li>
+          <li><strong>पंजीकरण फॉर्म:</strong> प्रत्येक प्रतिभागी को पंजीकरण फॉर्म भरना आवश्यक है।</li>
+          <li><strong>भुगतान का प्रमाण:</strong> भुगतान तभी पूर्ण माना जाएगा जब उसका प्रमाण (भुगतान का स्क्रीनशॉट) दिखाया जाएगा।</li>
+          <li><strong>कोई छूट नहीं:</strong> इस प्रथम टूर्नामेंट में किसी भी शुल्क में छूट नहीं दी जा सकती।</li>
+          <li><strong>सत्र 2 में छूट:</strong> जो खिलाड़ी इस सत्र में भाग लेंगे उन्हें दूसरे सत्र में 10–20% की छूट दी जाएगी।</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h2>3. पुरस्कार राशि</h2>
+        <table class="prize-table">
+          <thead>
+            <tr>
+              <th>श्रेणी</th>
+              <th>स्थान</th>
+              <th>पुरस्कार राशि</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>लड़कों की श्रेणी</strong></td>
+              <td>प्रथम स्थान</td>
+              <td>₹3100</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>द्वितीय स्थान (रनर-अप)</td>
+              <td>₹1100</td>
+            </tr>
+            <tr>
+              <td><strong>लड़कियों की श्रेणी</strong></td>
+              <td>प्रथम स्थान</td>
+              <td>₹2100</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>द्वितीय स्थान (रनर-अप)</td>
+              <td>₹700</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>गतिशील पुरस्कार राशि:</strong> पुरस्कार राशि पंजीकरण की संख्या के अनुसार बढ़ सकती है। पुरस्कार राशि में किसी भी परिवर्तन की जानकारी खिलाड़ियों को विनम्रता और सम्मानपूर्वक कोर्ट पर अंतिम मैच से पहले या टूर्नामेंट के दौरान उचित समय पर दी जाएगी।</p>
+      </div>
+
+      <div class="terms-section">
+        <h2>4. टूर्नामेंट नियम</h2>
+        
+        <h3>मैच उपकरण:</h3>
+        <ul>
+          <li><strong>शटल कॉक:</strong> मैच Yonex 350 शटल कॉक से खेले जाएंगे।</li>
+          <li><strong>रैकेट:</strong> खिलाड़ियों को अपना बैडमिंटन रैकेट स्वयं लाना होगा।</li>
+        </ul>
+
+        <h3>सुविधाएँ:</h3>
+        <ul>
+          <li>खिलाड़ियों के लिए कोर्ट पर पानी और चाय उपलब्ध होगी।</li>
+        </ul>
+
+        <h3>मैच प्रारूप:</h3>
+        <div class="info-box">
+          <strong>प्रथम राउंड:</strong> 15 / 15 / 21 अंक (3 सेट का सर्वश्रेष्ठ)<br>
+          <strong>सेमीफाइनल और फाइनल:</strong> 21 / 21 / 21 अंक (3 सेट का सर्वश्रेष्ठ)
+        </div>
+
+        <h3>अनुसूची:</h3>
+        <ul>
+          <li><strong>टूर्नामेंट अवधि:</strong> 2 दिन</li>
+          <li><strong>मैच का समय:</strong> मैच शनिवार को सुबह 10:00 बजे शुरू होंगे</li>
+          <li><strong>प्रथम राउंड:</strong> सभी प्रथम राउंड मैच शनिवार को खेले जाएंगे</li>
+          <li><strong>शेष मैच:</strong> शेष मैच आवश्यकता पड़ने पर रविवार को खेले जा सकते हैं</li>
+          <li><strong>लड़कियों का समय:</strong> लड़कियों के मैच शाम 5:30 बजे तक समाप्त होंगे</li>
+          <li><strong>लड़कों का समय:</strong> लड़कों के मैच शाम तक जारी रह सकते हैं, जिसका निर्णय आयोजकों और खिलाड़ियों के परामर्श से लिया जाएगा</li>
+        </ul>
+
+        <h3>सामान्य नियम:</h3>
+        <ul>
+          <li>अन्य सभी नियम सामान्य बैडमिंटन टूर्नामेंट नियमों के अनुसार होंगे।</li>
+        </ul>
+      </div>
+
+      <div class="terms-section">
+        <h2>5. मैच प्रवाह</h2>
+        
+        <h3>पहला दिन (शनिवार)</h3>
+        <ul>
+          <li>उद्घाटन समारोह और निर्देश सुबह 9:30 बजे</li>
+          <li>मैच सुबह 10:00 बजे शुरू होंगे</li>
+          <li>सभी प्रथम राउंड मैच आयोजकों द्वारा निर्धारित</li>
+          <li>लड़कियों के मैच शाम 5:30 बजे तक समाप्त</li>
+          <li>लड़कों के मैच शाम तक जारी रह सकते हैं, आयोजकों और खिलाड़ियों के परामर्श से</li>
+        </ul>
+
+        <h3>दूसरा दिन (रविवार)</h3>
+        <ul>
+          <li>शेष मैच (यदि कोई हों) जारी रहेंगे</li>
+          <li>दूसरे राउंड से आगे की टीमों का चयन रैंडम चिट-पिकिंग से होगा</li>
+          <li>सेमीफाइनल और फाइनल 21 अंक के सेट में खेले जाएंगे</li>
+          <li>समापन समारोह और पुरस्कार वितरण</li>
+        </ul>
+      </div>
+
+      <div class="inspiration-section">
+        <h2>✨ प्रेरणा और आत्मविश्वास का संदेश ✨</h2>
+        <p>इस बैडमिंटन टूर्नामेंट में आपका स्वागत है! यह केवल पदक या पुरस्कार जीतने के बारे में नहीं है। यह आपकी भावना, दृढ़ संकल्प और खेल के प्रति आपके जुनून को मनाने के बारे में है।</p>
+        
+        <div class="inspiration-quotes">
+          <div class="quote-card">
+            <p>"चैंपियन तब तक खेलते हैं जब तक वे सही न हो जाएँ। हर मैच मजबूत और बेहतर बनने का मौका है।"</p>
+          </div>
+          <div class="quote-card">
+            <p>"आपकी मेहनत आपकी सफलता को परिभाषित करेगी। जीतें या हारें, आप अपना सर्वश्रेष्ठ देने के लिए एक चैंपियन हैं।"</p>
+          </div>
+          <div class="quote-card">
+            <p>"अपने विरोधियों का सम्मान करें, अपने आप पर विश्वास करें, और अपने दिल से खेलें। यही एक true खिलाड़ी को परिभाषित करता है।"</p>
+          </div>
+          <div class="quote-card">
+            <p>"यह टूर्नामेंट खेल भावना, एकता और बैडमिंटन के आनंद को मनाने के बारे में है। कोर्ट पर हर पल का आनंद लें!"</p>
+          </div>
+        </div>
+
+        <p style="margin-top: 25px; font-size: 1.2em; font-weight: bold;">🌟 आप यहाँ हैं। आप मूल्यवान हैं। अब जाइए और चमकिए! 🌟</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2>🏆 Sponsors</h2>
+      <p>We gratefully acknowledge the support of our sponsors who make this tournament possible:</p>
+      <ul>
+        <li><strong>Aavi Cosmetics</strong></li>
+        <!-- add more sponsors here as needed -->
+      </ul>
+    </div>
+
+    <a href="index.html" class="back-button">← Back to Registration</a>
+  </main>
+
+  <script>
+    function toggleLanguage(lang) {
+      // Hide all sections
+      document.getElementById('english').classList.remove('active');
+      document.getElementById('hindi').classList.remove('active');
+      
+      // Show selected section
+      document.getElementById(lang).classList.add('active');
+      
+      // Update button styles
+      document.querySelectorAll('.language-toggle button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

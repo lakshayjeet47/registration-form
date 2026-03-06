@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Badminton Registration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- Trophy / Event Motto -->
+    <header class="event-header">
+      <h2>Promoting Sports, Fighting Drugs</h2>
+    </header>
+    <!-- Ground Details Link -->
+    <div class="ground-info">
+      <a href="ground_details.html" target="_blank" class="ground-btn">
+        View Ground Details
+      </a>
+
+      <a href="fee_details.html" target="_blank" class="ground-btn payment-btn">
+        Entry Fee / Payment Details
+      </a>
+    </div>
+
+    <h1>Badminton Registration</h1>
+    <p class="notice">Registrations are open for singles only.</p>
+
+    <!-- Registration Form -->
+    <form id="regForm" method="post" target="submitFrame">
+      <label>PLAYER NAME
+        <input name="entry.1026010184" type="text" required placeholder="Full name">
+      </label>
+
+      <label>TEAM NAME
+        <input name="entry.1900742805" type="text" placeholder="Team / Club name">
+      </label>
+
+      <label>GENDER
+        <select name="entry.345021363">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+      <label>ACADEMY
+        <input name="entry.873083329" type="text" placeholder="Academy name">
+      </label>
+
+      <label>FROM
+        <input name="entry.547249794" type="text" placeholder="City / District">
+      </label>
+
+      <label>MOBILE NO
+        <input name="entry.1212366506" type="tel" required pattern="[0-9+()\s-]{7,20}" placeholder="Mobile number">
+      </label>
+
+      <div class="terms-checkbox-section">
+        <label class="checkbox-label">
+          <input type="checkbox" id="termsCheckbox" required>
+          I have read and agree to the <a href="terms_conditions.html" target="_blank">Terms and Conditions</a>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Submit Registration</button>
+        <button type="reset" class="secondary">Reset</button>
+      </div>
+    </form>
+    <!-- ===============================
+   Registered Players List
+================================ -->
+
+    <div class="page-grid">
+
+      <!-- LEFT SIDE (FORM ALREADY HERE) -->
+
+      <!-- RIGHT SIDE PLAYERS LIST (DESKTOP) -->
+      <aside class="right-panel">
+
+        <div class="players-card">
+
+          <div class="players-head">
+            <h3>Registered Players</h3>
+            <span id="playersHint">Loading...</span>
+          </div>
+
+          <div class="players-columns">
+
+            <!-- Boys List -->
+            <div class="players-col">
+              <h4>Boys</h4>
+              <ol id="maleList" class="name-list">
+                <!-- names will load here -->
+              </ol>
+            </div>
+
+            <!-- Girls List -->
+            <div class="players-col">
+              <h4>Girls</h4>
+              <ol id="femaleList" class="name-list">
+                <!-- names will load here -->
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+
+    <!-- ===============================
+   MOBILE BUTTONS (Only visible mobile)
+================================ -->
+
+    <div class="mobile-list-actions">
+
+      <button id="openBoys" class="secondary">
+        <span class="fab-icon" aria-hidden="true">♂</span>
+        <span class="fab-text">Players Boys</span>
+      </button>
+
+      <button id="openGirls" class="secondary">
+        <span class="fab-icon" aria-hidden="true">♀</span>
+        <span class="fab-text">Players Girls</span>
+      </button>
+
+    </div>
+
+
+    <!-- ===============================
+   MOBILE LIST POPUP
+================================ -->
+
+    <div id="listModal" class="modal" aria-hidden="true">
+
+      <div class="modal-content">
+
+        <h3 id="listModalTitle" style="margin-bottom:12px;">
+          Players
+        </h3>
+
+        <p id="listModalInfo" class="list-modal-info">
+          These players are registered for now.
+        </p>
+
+        <div style="max-height:60vh;overflow:auto;">
+          <ol id="modalList" class="name-list">
+          </ol>
+        </div>
+
+        <div class="modal-actions" style="gap:10px;">
+
+          <button id="modalBack" class="secondary">
+            Back to Form
+          </button>
+
+          <button id="modalClose">
+            Close
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Sponsors Section -->
+    <section class="sponsors">
+      <h3>Our Sponsors</h3>
+      <ul>
+        <li>Aavi Cosmetics</li>
+        <!-- Add more sponsors here later -->
+      </ul>
+    </section>
+
+    <!-- Modal for success / error messages -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true">
+        <p id="modal-message"></p>
+        <div class="modal-actions">
+          <button id="modal-ok">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden iframe to receive the form POST response without navigating away -->
+    <iframe name="submitFrame" id="submitFrame" style="display:none;"></iframe>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
