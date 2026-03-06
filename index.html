@@ -31,31 +31,31 @@
 
     <!-- Registration Form -->
     <form id="regForm" method="post" target="submitFrame">
-      <label>PLAYER NAME
+      <label>PLAYER NAME <span class="req-star" aria-hidden="true">*</span>
         <input name="entry.1026010184" type="text" required placeholder="Full name">
       </label>
 
-      <label>TEAM NAME
-        <input name="entry.1900742805" type="text" placeholder="Team / Club name">
+      <label>TEAM NAME <span class="optional-note">(if any)</span>
+        <input id="teamNameInput" name="entry.1900742805" type="text" placeholder="Team / Club name">
       </label>
 
-      <label>GENDER
-        <select name="entry.345021363">
+      <label>GENDER <span class="req-star" aria-hidden="true">*</span>
+        <select name="entry.345021363" required>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Other">Other</option>
         </select>
       </label>
 
-      <label>ACADEMY
-        <input name="entry.873083329" type="text" placeholder="Academy name">
+      <label>ACADEMY <span class="optional-note">(if any)</span>
+        <input id="academyInput" name="entry.547249794" type="text" placeholder="Academy name">
       </label>
 
-      <label>FROM
-        <input name="entry.547249794" type="text" placeholder="City / District">
+      <label>FROM <span class="optional-note">(if any)</span>
+        <input id="fromInput" name="entry.873083329" type="text" placeholder="City / District">
       </label>
 
-      <label>MOBILE NO
+      <label>MOBILE NO <span class="req-star" aria-hidden="true">*</span>
         <input name="entry.1212366506" type="tel" required pattern="[0-9+()\s-]{7,20}" placeholder="Mobile number">
       </label>
 
@@ -71,7 +71,6 @@
         <button type="reset" class="secondary">Reset</button>
       </div>
     </form>
-    <!-- ===============================
    Registered Players List
 ================================ -->
 

@@ -55,6 +55,17 @@ form label {
     margin-bottom: 12px
 }
 
+.req-star {
+    color: #c62828;
+    font-weight: 800;
+}
+
+.optional-note {
+    color: #6b7b91;
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
 /* Modal styles */
 .modal {
     position: fixed;
@@ -478,7 +489,7 @@ button.secondary {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 8px;
+    gap: 16px;
     flex: 1;
     min-height: 0;
 }
@@ -487,6 +498,11 @@ button.secondary {
     display: flex;
     flex-direction: column;
     min-height: 0;
+}
+
+.players-col+.players-col {
+    padding-top: 10px;
+    border-top: 1px solid #e3ebf4;
 }
 
 .players-col h4 {

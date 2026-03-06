@@ -10,6 +10,9 @@ const modalOk = document.getElementById('modal-ok');
 // const status = document.getElementById('status');
 const iframe = document.getElementById('submitFrame');
 const termsCheckbox = document.getElementById('termsCheckbox');
+const teamNameInput = document.getElementById('teamNameInput');
+const academyInput = document.getElementById('academyInput');
+const fromInput = document.getElementById('fromInput');
 const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
 function syncSubmitButtonState() {
@@ -49,6 +52,19 @@ if (form) {
       showModal('Please read and agree to the Terms and Conditions to continue.');
       syncSubmitButtonState();
       return;
+    }
+
+    // Ensure academy is never submitted as blank.
+    if (academyInput && !academyInput.value.trim()) {
+      academyInput.value = 'No Academy';
+    }
+
+    if (fromInput && !fromInput.value.trim()) {
+      fromInput.value = 'Not Mentioned';
+    }
+
+    if (teamNameInput && !teamNameInput.value.trim()) {
+      teamNameInput.value = 'No Name';
     }
 
     // mark submitting so iframe load handler ignores page refreshes
@@ -256,6 +272,7 @@ function sanitizePlayers(rawPlayers) {
   return rawPlayers
     .map((player) => {
       const name = pickField(player, ["PLAYER NAME", "Player Name", "player name", "name"]);
+      const academy = pickField(player, ["ACADEMY", "Academy", "academy"]);
       const normalizedGender = normalizeGender(
         pickField(player, ["GENDER", "Gender", "gender", "sex"])
       );
@@ -267,6 +284,7 @@ function sanitizePlayers(rawPlayers) {
       // Keep only public-safe fields for UI.
       return {
         "PLAYER NAME": name,
+        "ACADEMY": academy || "No Academy",
         "GENDER": normalizedGender
       };
     })
@@ -376,8 +394,9 @@ function displayPlayers(playersList) {
   if (boys.length > 0) {
     boys.forEach(player => {
       const name = pickField(player, ["PLAYER NAME", "Player Name", "player name"]) || "Unknown";
+      const academy = pickField(player, ["ACADEMY", "Academy", "academy"]) || "No Academy";
       const li = document.createElement("li");
-      li.textContent = name;
+      li.textContent = `${name} - ${academy}`;
       maleList.appendChild(li);
     });
   } else {
@@ -391,8 +410,9 @@ function displayPlayers(playersList) {
   if (girls.length > 0) {
     girls.forEach(player => {
       const name = pickField(player, ["PLAYER NAME", "Player Name", "player name"]) || "Unknown";
+      const academy = pickField(player, ["ACADEMY", "Academy", "academy"]) || "No Academy";
       const li = document.createElement("li");
-      li.textContent = name;
+      li.textContent = `${name} - ${academy}`;
       femaleList.appendChild(li);
     });
   } else {
