@@ -163,6 +163,9 @@ const modalClose = document.getElementById("modalClose");
 const listScrollTimers = new WeakMap();
 const latestPlayersState = { boys: [], girls: [] };
 let playersLoadingTimer = null;
+let playersFetchState = "idle";
+let currentLoadingSuffix = "...";
+let activeMobileListType = null;
 
 // Web App URL to fetch players from Google Sheet
 const PLAYERS_API_URL = "https://script.google.com/macros/s/AKfycbwMnyedOrUw1oZ2dGeonsdC5vbinEa0cy2F4nTuwZptzRwYK4hK6z0EWjk0kEoC_hm-AQ/exec";
@@ -328,27 +331,41 @@ function startAutoScroll(listEl) {
 function openMobileList(type) {
   if (!listModal || !modalList || !listModalTitle) return;
 
+  activeMobileListType = type;
+
   const isBoys = type === "boys";
   const names = isBoys ? latestPlayersState.boys : latestPlayersState.girls;
   listModalTitle.textContent = isBoys ? "Boys Players" : "Girls Players";
-  if (listModalInfo) {
-    listModalInfo.textContent = isBoys
-      ? `These boys are registered for now. Total: ${names.length}`
-      : `These girls are registered for now. Total: ${names.length}`;
-  }
+
   modalList.innerHTML = "";
 
-  if (!names.length) {
+  if (playersFetchState === "loading") {
+    if (listModalInfo) {
+      listModalInfo.textContent = `Getting data${currentLoadingSuffix}`;
+    }
     const li = document.createElement("li");
-    li.textContent = "No registrations yet";
-    li.style.color = "#999";
+    li.className = "loading-item";
+    li.textContent = `Getting data${currentLoadingSuffix}`;
     modalList.appendChild(li);
   } else {
-    names.forEach((name) => {
+    if (listModalInfo) {
+      listModalInfo.textContent = isBoys
+        ? `These boys are registered for now. Total: ${names.length}`
+        : `These girls are registered for now. Total: ${names.length}`;
+    }
+
+    if (!names.length) {
       const li = document.createElement("li");
-      li.textContent = name;
+      li.textContent = "No registrations yet";
+      li.style.color = "#999";
       modalList.appendChild(li);
-    });
+    } else {
+      names.forEach((name) => {
+        const li = document.createElement("li");
+        li.textContent = name;
+        modalList.appendChild(li);
+      });
+    }
   }
 
   listModal.classList.add("show");
@@ -359,6 +376,7 @@ function closeMobileList() {
   if (!listModal) return;
   listModal.classList.remove("show");
   listModal.setAttribute("aria-hidden", "true");
+  activeMobileListType = null;
 }
 
 function displayPlayers(playersList) {
@@ -384,10 +402,18 @@ function displayPlayers(playersList) {
   }
 
   latestPlayersState.boys = boys
-    .map((player) => pickField(player, ["PLAYER NAME", "Player Name", "player name"]))
+    .map((player) => {
+      const name = pickField(player, ["PLAYER NAME", "Player Name", "player name"]) || "Unknown";
+      const academy = pickField(player, ["ACADEMY", "Academy", "academy"]) || "No Academy";
+      return `${name} - ${academy}`;
+    })
     .filter(Boolean);
   latestPlayersState.girls = girls
-    .map((player) => pickField(player, ["PLAYER NAME", "Player Name", "player name"]))
+    .map((player) => {
+      const name = pickField(player, ["PLAYER NAME", "Player Name", "player name"]) || "Unknown";
+      const academy = pickField(player, ["ACADEMY", "Academy", "academy"]) || "No Academy";
+      return `${name} - ${academy}`;
+    })
     .filter(Boolean);
 
   // Display boys
@@ -425,6 +451,10 @@ function displayPlayers(playersList) {
   // Create a slow continuous scroll effect for transparency board style display.
   startAutoScroll(maleList);
   startAutoScroll(femaleList);
+
+  if (listModal && listModal.classList.contains("show") && activeMobileListType) {
+    openMobileList(activeMobileListType);
+  }
 }
 
 function stopPlayersLoadingAnimation() {
@@ -437,6 +467,8 @@ function showPlayersLoadingState() {
   if (!maleList || !femaleList) return;
 
   stopPlayersLoadingAnimation();
+  playersFetchState = "loading";
+  currentLoadingSuffix = "...";
   latestPlayersState.boys = [];
   latestPlayersState.girls = [];
   maleList.innerHTML = "";
@@ -456,16 +488,20 @@ function showPlayersLoadingState() {
   const dots = [".", "..", "..."];
   let index = 0;
   playersLoadingTimer = setInterval(() => {
-    const suffix = dots[index];
+    currentLoadingSuffix = dots[index];
     index = (index + 1) % dots.length;
-    maleLoadingItem.textContent = `Getting data${suffix}`;
-    femaleLoadingItem.textContent = `Getting data${suffix}`;
-    if (playersHint) playersHint.textContent = `Getting data${suffix}`;
+    maleLoadingItem.textContent = `Getting data${currentLoadingSuffix}`;
+    femaleLoadingItem.textContent = `Getting data${currentLoadingSuffix}`;
+    if (playersHint) playersHint.textContent = `Getting data${currentLoadingSuffix}`;
+    if (listModal && listModal.classList.contains("show") && activeMobileListType) {
+      openMobileList(activeMobileListType);
+    }
   }, 420);
 }
 
 function showNoRegistrationsState() {
   stopPlayersLoadingAnimation();
+  playersFetchState = "empty";
   displayPlayers([]);
   if (playersHint) {
     playersHint.textContent = "No registration yet";
@@ -491,6 +527,7 @@ async function loadPlayers() {
       return;
     }
 
+    playersFetchState = "ready";
     displayPlayers(safePlayers);
   } catch (error) {
     showNoRegistrationsState();
