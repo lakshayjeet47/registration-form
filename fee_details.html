@@ -139,6 +139,37 @@
       line-height: 1.5;
     }
 
+    .prize-box {
+      margin-top: 16px;
+      border: 1px solid #e1ebf7;
+      border-radius: 10px;
+      padding: 14px;
+      background: #f8fbff;
+      text-align: center;
+    }
+
+    .prize-box h2 {
+      margin: 0 0 10px;
+      color: #14385f;
+      font-size: 1.1rem;
+    }
+
+    .prize-box img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 10px;
+      border: 1px solid #d8e3f0;
+      background: #fff;
+      margin-bottom: 10px;
+    }
+
+    .prize-box p {
+      margin: 0;
+      line-height: 1.5;
+      color: #2a3f55;
+      font-weight: 600;
+    }
+
     .actions {
       margin-top: 16px;
       display: flex;
@@ -231,6 +262,16 @@
           </ul>
         </section>
 
+        <section class="prize-box">
+          <h2>Trophy and Prize Details</h2>
+          <img data-drive-link="https://drive.google.com/file/d/1VOOD-zJNa1FdYaajBSPmAOn7LlpuVp_G/view?usp=sharing" alt="Tournament trophy image">
+          <p>
+            Players can get trophy also with prize pool amount.<br>
+            <strong>1st Prize:</strong> As per prize pool amount<br>
+            <strong>Runner-Up:</strong> As per prize pool amount
+          </p>
+        </section>
+
         <div class="actions">
           <a class="btn primary" href="index.html">Back to Registration</a>
           <a class="btn secondary" href="#" onclick="window.print(); return false;">Print</a>
@@ -238,6 +279,42 @@
       </div>
     </section>
   </main>
+
+  <script>
+    function getDriveImageUrl(link) {
+      if (!link) return "";
+
+      const fileMatch = link.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (fileMatch && fileMatch[1]) {
+        return "https://drive.google.com/uc?export=view&id=" + fileMatch[1];
+      }
+
+      const idMatch = link.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (idMatch && idMatch[1]) {
+        return "https://drive.google.com/uc?export=view&id=" + idMatch[1];
+      }
+
+      return link;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const driveImages = document.querySelectorAll("img[data-drive-link]");
+
+      driveImages.forEach(function (img) {
+        const driveLink = img.getAttribute("data-drive-link");
+        const directLink = getDriveImageUrl(driveLink);
+        img.src = directLink;
+
+        // Thumbnail URL is a safe fallback if direct Drive URL is blocked.
+        img.onerror = function () {
+          const fileMatch = driveLink ? driveLink.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) : null;
+          if (fileMatch && fileMatch[1]) {
+            img.src = "https://drive.google.com/thumbnail?id=" + fileMatch[1] + "&sz=w1000";
+          }
+        };
+      });
+    });
+  </script>
 </body>
 
 </html>
